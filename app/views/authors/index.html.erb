@@ -1,0 +1,5 @@
+<%= link_to 'New Author', new_author_path %>
+
+<% @authors.each do |author| %>
+  <%= author.inspect %>
+<% end %>

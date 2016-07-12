@@ -1,0 +1,5 @@
+<%= link_to 'New Library', new_library_path %>
+
+<% @libraries.each do |library| %>
+  <%= library.inspect %>
+<% end %>

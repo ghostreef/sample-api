@@ -1,0 +1,5 @@
+<%= link_to 'New Address', new_address_path %>
+
+<% @addresses.each do |address| %>
+  <%= address.inspect %>
+<% end %>

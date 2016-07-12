@@ -8,6 +8,20 @@
 </head>
 <body>
 
+<div>
+  <%= link_to 'Libraries', libraries_path %>
+  <%= link_to 'New Library', new_library_path %>
+
+  <%= link_to 'Books', books_path %>
+  <%= link_to 'New Book', new_book_path %>
+
+  <%= link_to 'Authors', authors_path %>
+  <%= link_to 'New Author', new_author_path %>
+
+  <%= link_to 'Addresses', addresses_path %>
+  <%= link_to 'New Address', new_address_path %>
+</div>
+
 <%= yield %>
 
 </body>
