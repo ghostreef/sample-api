@@ -1,0 +1,22 @@
+<%= form_for @book do |f| %>
+
+  <%= render 'errors', object: @book %>
+
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :isbn %>
+    <%= f.number_field :isbn %>
+  </p>
+
+  <div>
+    <%#= f.label :authors %>
+    <%#= f.collection_select(:author_ids, Author.all, :id, :name, { multiple: true }) %>
+  </div>
+
+  <%= f.submit %>
+
+<% end %>

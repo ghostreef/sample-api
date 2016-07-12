@@ -1,0 +1,17 @@
+<%= form_for @author do |f| %>
+
+  <%= render 'errors', object: @author %>
+
+  <p>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </p>
+
+  <p>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </p>
+
+  <%= f.submit %>
+
+<% end %>

@@ -1,0 +1,17 @@
+<%= form_for @library do |f| %>
+
+  <%= render 'errors', object: @library %>
+
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :year_built %>
+    <%= f.number_field :year_built %>
+  </p>
+
+  <%= f.submit %>
+
+<% end %>
