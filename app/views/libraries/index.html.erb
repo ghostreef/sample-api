@@ -1,5 +1,8 @@
-<%= link_to 'New Library', new_library_path %>
-
 <% @libraries.each do |library| %>
-  <%= library.inspect %>
+  <p>
+    <%= library.inspect %>
+    <%= link_to('edit', edit_library_path(library)) %>
+    <%= link_to('show', library_path(library)) %>
+    <%= link_to('delete', library_path(library), method: :delete, data: {confirm: 'Are you sure?'}) %>
+  </p>
 <% end %>

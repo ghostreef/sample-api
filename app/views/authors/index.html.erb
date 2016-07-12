@@ -1,5 +1,8 @@
-<%= link_to 'New Author', new_author_path %>
-
 <% @authors.each do |author| %>
-  <%= author.inspect %>
+  <p>
+    <%= author.inspect %>
+    <%= link_to('edit', edit_author_path(author)) %>
+    <%= link_to('show', author_path(author)) %>
+    <%= link_to('delete', author_path(author), method: :delete, data: {confirm: 'Are you sure?'}) %>
+  </p>
 <% end %>

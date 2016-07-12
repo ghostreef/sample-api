@@ -1,5 +1,8 @@
-<%= link_to 'New Address', new_address_path %>
-
 <% @addresses.each do |address| %>
-  <%= address.inspect %>
+  <p>
+    <%= address.inspect %>
+    <%= link_to('edit', edit_address_path(address)) %>
+    <%= link_to('show', address_path(address)) %>
+    <%= link_to('delete', address_path(address), method: :delete, data: {confirm: 'Are you sure?'}) %>
+  </p>
 <% end %>
