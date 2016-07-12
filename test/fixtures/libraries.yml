@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  address_id: 
+  year_built: 1
+  name: MyString
+
+two:
+  address_id: 
+  year_built: 1
+  name: MyString
