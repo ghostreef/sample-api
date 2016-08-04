@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   def generate_api_key
     @user.generate_api_key
     @user.save
-    redirect_to(@user)
+    redirect_to users_path
   end
 
   private
