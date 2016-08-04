@@ -1,0 +1,33 @@
+<%= form_for @user do |f| %>
+
+  <%= render 'errors', object: @user %>
+
+  <p>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </p>
+
+  <p>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </p>
+
+  <p>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </p>
+
+  <p>
+    <!-- rails changes the route if model is invalid -->
+    <% if current_page?(new_user_path) || !@user.valid? %>
+      <%= label_tag(:auto_generate_key, 'Auto generate api key?') %>
+      <%= check_box_tag(:auto_generate_key, '1', true) %>
+    <% else %>
+      <%= f.label :api_key %>
+      <%= @user.api_key || 'NO KEY' %>
+    <% end %>
+  </p>
+
+  <%= f.submit %>
+
+<% end %>
