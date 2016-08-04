@@ -2,6 +2,12 @@ class BooksController < ApplicationController
 
   before_action :find_book, only: [:show, :edit, :update, :destroy]
 
+  # before_action :restrict_access
+
+  # EXAMPLE QUERY
+  # curl http://localhost:3040/books.json -u 'jonathan:secret'
+  # http_basic_authenticate_with name: 'jonathan', password: 'secret'
+
   def index
     @books = Book.order(:title)
     respond_to do |format|
@@ -53,5 +59,13 @@ class BooksController < ApplicationController
 
   def book_params
     params.require(:book).permit(:title, :isbn, author_ids: [])
+  end
+
+  # EXAMPLE QUERY
+  # curl http://localhost:3040/books.json -H 'Authorization: Token token="d6997d95ddf6294da7b9f0b80f40de88"'
+  def restrict_access
+    authenticate_or_request_with_http_token do |token, options|
+      User.find_by_api_key(token).present?
+    end
   end
 end
