@@ -18,13 +18,14 @@
   </p>
 
   <p>
-    <!-- rails changes the route if model is invalid -->
-    <% if current_page?(new_user_path) || !@user.valid? %>
+    <%= f.label :api_key %>
+    <%= @user.api_key || 'NO KEY' %>
+  </p>
+  
+  <p>
+    <% if @user.api_key.nil? %>
       <%= label_tag(:auto_generate_key, 'Auto generate api key?') %>
       <%= check_box_tag(:auto_generate_key, '1', true) %>
-    <% else %>
-      <%= f.label :api_key %>
-      <%= @user.api_key || 'NO KEY' %>
     <% end %>
   </p>
 
@@ -32,4 +33,3 @@
 
 <% end %>
 
-<%= button_to '(Re)Generate API Key', generate_api_key_user_path %>
