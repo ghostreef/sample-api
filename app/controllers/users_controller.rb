@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :find_user, only: [:show, :edit, :update, :destroy]
+  before_action :find_user, only: [:show, :edit, :update, :destroy, :generate_api_key]
 
   def index
     @users = User.order(:last_name)
@@ -36,6 +36,13 @@ class UsersController < ApplicationController
     else
       redirect_to users_path, flash: {error: 'Failed to destroy user.'}
     end
+  end
+
+  # this needs authorization....cancanan later
+  def generate_api_key
+    @user.generate_api_key
+    @user.save
+    redirect_to(@user)
   end
 
   private
