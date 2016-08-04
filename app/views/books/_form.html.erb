@@ -13,8 +13,8 @@
   </p>
 
   <div>
-    <%#= f.label :authors %>
-    <%#= f.collection_select(:author_ids, Author.all, :id, :name, { multiple: true }) %>
+    <%= f.label :authors %>
+    <%= f.collection_check_boxes(:author_ids, Author.all, :id, :name) %>
   </div>
 
   <%= f.submit %>

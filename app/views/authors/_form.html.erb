@@ -12,6 +12,11 @@
     <%= f.text_field :last_name %>
   </p>
 
+  <div>
+    <%= f.label :books %>
+    <%= f.collection_check_boxes(:book_ids, Book.all, :id, :title) %>
+  </div>
+
   <%= f.submit %>
 
 <% end %>
