@@ -7,4 +7,7 @@ Rails.application.routes.draw do
       post 'generate_api_key'
     end
   end
+
+  get '/request/:slug', to: 'requests#show'
+
 end
