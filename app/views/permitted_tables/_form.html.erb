@@ -1,0 +1,17 @@
+<%= form_for @permitted_table do |f| %>
+
+  <%= render 'errors', object: @permitted_table %>
+
+  <p>
+    <%= f.label :name %>
+    <%= f.select :name, PermittedTable.tables %>
+  </p>
+
+  <p>
+    <%= f.label :slug %>
+    <%= f.text_field :slug %>
+  </p>
+
+  <%= f.submit %>
+
+<% end %>

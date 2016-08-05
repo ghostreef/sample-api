@@ -1,0 +1,8 @@
+<% @permitted_tables.each do |table| %>
+  <p>
+    <%= table.inspect %>
+    <%= link_to('edit', edit_permitted_table_path(table)) %>
+    <%= link_to('show', permitted_table_path(table)) %>
+    <%= link_to('delete', permitted_table_path(table), method: :delete, data: {confirm: 'Are you sure?'}) %>
+  </p>
+<% end %>
