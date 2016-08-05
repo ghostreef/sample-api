@@ -5,8 +5,4 @@ class Response < ActiveRecord::Result
     @result = result
     super(result.columns, result.rows)
   end
-
-  def method_missing(name, *args)
-    super
-  end
 end
