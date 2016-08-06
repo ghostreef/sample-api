@@ -1,0 +1,8 @@
+<% @queries.each do |query| %>
+  <p>
+    <%= query.inspect %>
+    <%= link_to('edit', edit_query_path(query)) %>
+    <%= link_to('show', query_path(query)) %>
+    <%= link_to('delete', query_path(query), method: :delete, data: {confirm: 'Are you sure?'}) %>
+  </p>
+<% end %>

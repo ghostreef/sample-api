@@ -1,0 +1,22 @@
+<%= form_for @query do |f| %>
+
+  <%= render 'errors', object: @query %>
+
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :sql %>
+    <%= f.text_field :sql %>
+  </p>
+
+  <div>
+    <%= f.label :status %>
+    <%= f.select(:status, Query.statuses.keys) %>
+  </div>
+
+  <%= f.submit %>
+
+<% end %>
