@@ -8,6 +8,6 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/request/:slug', to: 'requests#show'
+  get '/request/api/v1/:query_name', to: 'requests#show'
 
 end

@@ -1,15 +1,25 @@
 class RequestsController < ApplicationController
   def show
-    @table = PermittedTable.find_by_slug(params.delete(:slug))
-    head :unauthorized and return if @table.nil?
+    # grab and delete name
+    name = params.delete(:query_name)
 
-    options = {}
-    options[:limit] = params.delete(:limit)
-    options[:offset] = params.delete(:offset)
-    options[:order] = params.delete(:order)
-    options[:where] = params.delete_if {|key, value| %w(action controller format).include?(key) }
+    # is it a predefined query?
+    query = Query.find_by_name(name)
 
-    @response = Request.new.execute(@table.name, options)
+    # no? let's build it out
+    table = PermittedTable.find_by_slug(name) if query.nil?
+    if table.present?
+      options = {}
+      options[:limit] = params.delete(:limit)
+      options[:offset] = params.delete(:offset)
+      options[:order] = params.delete(:order)
+      options[:where] = params.delete_if {|key, value| %w(action controller format).include?(key) }
+      query = Query.build_query(table.name, options)
+    end
+
+    head :unauthorized and return if query.nil?
+
+    @response = Request.new.execute(query.sql)
 
     respond_to do |format|
       format.html
