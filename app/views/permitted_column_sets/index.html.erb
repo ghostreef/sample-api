@@ -1,0 +1,8 @@
+<% @permitted_column_sets.each do |column_set| %>
+  <p>
+    <%= column_set.inspect %>
+    <%= link_to('edit', edit_permitted_column_set_path(column_set)) %>
+    <%= link_to('show', permitted_column_set_path(column_set)) %>
+    <%= link_to('delete', permitted_column_set_path(column_set), method: :delete, data: {confirm: 'Are you sure?'}) %>
+  </p>
+<% end %>
