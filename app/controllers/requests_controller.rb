@@ -13,7 +13,7 @@ class RequestsController < ApplicationController
       options[:limit] = params.delete(:limit)
       options[:offset] = params.delete(:offset)
       options[:order] = params.delete(:order)
-      options[:where] = params.delete_if {|key, value| %w(action controller format).include?(key) }
+      options[:where] = params.permit(table.all_columns)
       query = Query.build_query(table.name, options)
     end
 
