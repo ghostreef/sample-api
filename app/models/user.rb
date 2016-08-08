@@ -15,4 +15,8 @@ class User < ActiveRecord::Base
       self.api_key = SecureRandom.hex
     end while self.class.exists?(api_key: api_key)
   end
+
+  def has_role?(role_name)
+    roles.pluck(:name).include?(role_name)
+  end
 end

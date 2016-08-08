@@ -9,6 +9,7 @@ class BooksController < ApplicationController
   # http_basic_authenticate_with name: 'jonathan', password: 'secret'
 
   def index
+    authorize! :query, Book
     @books = Book.order(:title)
     respond_to do |format|
       format.html
