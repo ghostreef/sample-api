@@ -1,0 +1,8 @@
+<% @roles.each do |role| %>
+  <p>
+    <%= role.inspect %>
+    <%= link_to('edit', edit_role_path(role)) %>
+    <%= link_to('show', role_path(role)) %>
+    <%= link_to('delete', role_path(role), method: :delete, data: {confirm: 'Are you sure?'}) %>
+  </p>
+<% end %>

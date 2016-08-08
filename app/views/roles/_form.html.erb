@@ -1,0 +1,12 @@
+<%= form_for @role do |f| %>
+
+  <%= render 'errors', object: @role %>
+
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+
+  <%= f.submit %>
+
+<% end %>
