@@ -13,9 +13,19 @@
   </p>
 
   <p>
+    <%= f.label :password %>
+    <%= f.password_field :password, autocomplete: 'off' %>
+  </p>
+
+  <p>
     <%= f.label :email %>
     <%= f.text_field :email %>
   </p>
+
+  <div>
+    <%= f.label :roles %>
+    <%= f.collection_select(:role_ids, Role.all, :id, :name, {}, {multiple: true}) %>
+  </div>
 
   <p>
     <%= f.label :api_key %>

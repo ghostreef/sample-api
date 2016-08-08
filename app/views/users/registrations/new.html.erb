@@ -13,6 +13,11 @@
     <%= f.text_field :last_name %>
   </div>
 
+  <div>
+    <%= f.label :roles %>
+    <%= f.collection_select(:role_ids, Role.all, :id, :name) %>
+  </div>
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
