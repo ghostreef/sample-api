@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   validates :email, format: {with: /\A.*@.*\z/, message: 'format is invalid.' }
   validates :api_key, uniqueness: true
 
+  has_and_belongs_to_many :roles
+
   # sometimes api key will be it's own model (for count/exp date), but here we will just attach it to the user model
   def generate_api_key
     begin
