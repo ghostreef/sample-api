@@ -14,7 +14,7 @@ class Query < ActiveRecord::Base
 
     limit = options.fetch(:limit, DEFAULT_LIMIT)
     offset = options.fetch(:offset, 0)
-    columns = options.fetch(:columns, '*')
+    columns = options[:columns].present? ? options[:columns].map{|c| c.to_s}.join(', ') : '*'
     where = options.fetch(:where, {}).map { |k, v| "#{k}='#{v}'" }.join(' and ')
     order = options.fetch(:order, []).split(',')
 

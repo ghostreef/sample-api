@@ -13,6 +13,7 @@ class RequestsController < ApplicationController
       options[:limit] = params.delete(:limit)
       options[:offset] = params.delete(:offset)
       options[:order] = params.delete(:order)
+      options[:columns] = PermittedColumnSet.find_by_slug(params.delete(:column_set)).column_set.reject!(&:empty?) if params[:column_set].present?
       options[:where] = params.permit(table.all_columns)
       query = Query.build_query(table.name, options)
     end
