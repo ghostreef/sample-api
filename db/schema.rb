@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160808190518) do
+ActiveRecord::Schema.define(version: 20160808193439) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20160808190518) do
     t.integer  "permitted_table_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.string   "column_set"
   end
 
   add_index "permitted_column_sets", ["permitted_table_id"], name: "index_permitted_column_sets_on_permitted_table_id"

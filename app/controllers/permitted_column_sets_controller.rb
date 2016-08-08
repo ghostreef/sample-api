@@ -46,6 +46,6 @@ class PermittedColumnSetsController < ApplicationController
   end
 
   def permitted_column_set_params
-    params.require(:permitted_column_set).permit(:name, :slug, :permitted_table_id)
+    params.require(:permitted_column_set).permit(:name, :slug, :permitted_table_id, column_set: [])
   end
 end

@@ -17,6 +17,13 @@
     <%= f.collection_select(:permitted_table_id, PermittedTable.all, :id, :name) %>
   </p>
 
+  <% if @permitted_column_set.permitted_table.present? %>
+    <p>
+      <%= f.label :column_set %>
+      <%= f.select(:column_set, @permitted_column_set.all_columns, {}, {multiple: true}) %>
+    </p>
+  <% end %>
+
   <%= f.submit %>
 
 <% end %>
