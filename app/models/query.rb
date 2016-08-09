@@ -15,6 +15,7 @@ class Query < ActiveRecord::Base
     limit = options.fetch(:limit, DEFAULT_LIMIT)
     offset = options.fetch(:offset, 0)
     columns = options[:columns].present? ? options[:columns].map{|c| c.to_s}.join(', ') : '*'
+    # use this sanitize_sql_array, concat keys and values
     where = options.fetch(:where, {}).map { |k, v| "#{k}='#{v}'" }.join(' and ')
     order = options.fetch(:order, []).split(',')
 
